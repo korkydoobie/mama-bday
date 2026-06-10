@@ -1,0 +1,84 @@
+﻿:root {
+  color-scheme: light;
+  --ink: #20252b;
+  --muted: #5b6570;
+  --paper: #fffaf4;
+  --rose: #d94f65;
+  --coral: #f27970;
+  --teal: #176c6d;
+  --gold: #c28a32;
+  --line: rgba(32, 37, 43, 0.14);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+button { font: inherit; }
+.page-shell { min-height: 100vh; overflow: hidden; }
+.hero {
+  position: relative;
+  min-height: 92svh;
+  display: grid;
+  align-items: end;
+  isolation: isolate;
+  padding: clamp(24px, 5vw, 64px);
+}
+.hero-art, .hero-scrim { position: absolute; inset: 0; }
+.hero-art { width: 100%; height: 100%; object-fit: cover; z-index: -3; }
+.hero-scrim {
+  z-index: -2;
+  background: linear-gradient(90deg, rgba(20, 24, 27, 0.76), rgba(20, 24, 27, 0.26) 56%, rgba(20, 24, 27, 0.08)),
+    linear-gradient(0deg, rgba(20, 24, 27, 0.6), rgba(20, 24, 27, 0.04) 48%);
+}
+.hero-content { width: min(760px, 100%); color: #fffdf8; padding-block: 28px; }
+.eyebrow, .section-kicker {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+h1, h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; letter-spacing: 0; }
+.hero h1 { max-width: 10ch; font-size: clamp(4rem, 13vw, 10.5rem); line-height: 0.86; }
+.hero-copy { max-width: 620px; margin: 28px 0 0; color: rgba(255, 253, 248, 0.9); font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.65; }
+.hero-actions { display: flex; align-items: center; gap: 12px; margin-top: 32px; }
+.primary-action, .icon-action { border: 0; cursor: pointer; transition: transform 180ms ease, background 180ms ease; }
+.primary-action { min-height: 48px; padding: 0 22px; border-radius: 8px; background: #fffaf4; color: var(--ink); font-weight: 800; }
+.icon-action { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 999px; background: var(--coral); color: white; font-size: 1.7rem; font-weight: 700; line-height: 1; }
+.primary-action:hover, .icon-action:hover { transform: translateY(-2px); }
+.letter-section, .memories-section, .wish-section { padding: clamp(54px, 9vw, 110px) clamp(20px, 5vw, 72px); }
+.letter-section { background: linear-gradient(120deg, rgba(242, 121, 112, 0.12), transparent 48%), var(--paper); }
+.letter-wrap, .section-heading, .memory-grid { width: min(1000px, 100%); margin-inline: auto; }
+.letter-wrap { max-width: 840px; }
+h2 { font-size: clamp(2.4rem, 6vw, 5.8rem); line-height: 0.98; }
+.letter-wrap p:not(.section-kicker), .wish-section p { color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.16rem); line-height: 1.85; }
+.signature { margin-top: 30px; color: var(--ink) !important; font-weight: 800; }
+.memories-section { background: #fff; }
+.section-heading { margin-bottom: 30px; }
+.memory-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.memory-card { min-height: 245px; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: #fffaf4; box-shadow: 0 14px 35px rgba(32, 37, 43, 0.08); }
+.memory-card span { color: var(--teal); font-weight: 800; }
+.memory-card h3 { margin: 34px 0 12px; font-size: clamp(1.2rem, 2vw, 1.45rem); }
+.memory-card p { margin: 0; color: var(--muted); line-height: 1.65; }
+.wish-section { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr); gap: clamp(28px, 6vw, 80px); align-items: center; background: linear-gradient(135deg, var(--teal), #244a38); color: white; }
+.wish-section .section-kicker { color: #ffd38a; }
+.wish-section p { margin: 0; color: rgba(255, 255, 255, 0.88); }
+.confetti-layer { pointer-events: none; position: fixed; inset: 0; z-index: 20; overflow: hidden; }
+.confetti { position: absolute; top: -18px; width: 10px; height: 16px; border-radius: 2px; animation: fall var(--duration) linear forwards; transform: rotate(var(--turn)); }
+@keyframes fall { to { translate: var(--drift) 108vh; rotate: 720deg; opacity: 0.86; } }
+@media (max-width: 820px) {
+  .hero { min-height: 88svh; }
+  .hero-scrim { background: linear-gradient(0deg, rgba(20, 24, 27, 0.76), rgba(20, 24, 27, 0.18) 68%), linear-gradient(90deg, rgba(20, 24, 27, 0.42), rgba(20, 24, 27, 0.08)); }
+  .hero h1 { font-size: clamp(3.4rem, 18vw, 6.4rem); }
+  .memory-grid, .wish-section { grid-template-columns: 1fr; }
+  .memory-card { min-height: 205px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
