@@ -30,3 +30,40 @@ openLetter.addEventListener("click", () => {
 
 celebrate.addEventListener("click", () => makeConfetti(120));
 window.addEventListener("load", () => window.setTimeout(() => makeConfetti(70), 550));
+
+function setupMemoryCarousel() {
+  const track = document.querySelector("#memoryCarousel");
+  if (!track) return;
+
+  const slides = Array.from(track.querySelectorAll(".carousel-slide"));
+  const prev = document.querySelector("[data-carousel-prev]");
+  const next = document.querySelector("[data-carousel-next]");
+  const dotsWrap = document.querySelector(".carousel-dots");
+  if (!slides.length || !prev || !next || !dotsWrap) return;
+  let current = 0;
+
+  const dots = slides.map((_, index) => {
+    const dot = document.createElement("button");
+    dot.className = "carousel-dot";
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Show photo ${index + 1}`);
+    dot.addEventListener("click", () => showSlide(index));
+    dotsWrap.appendChild(dot);
+    return dot;
+  });
+
+  function showSlide(index) {
+    current = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("is-active", dotIndex === current);
+      dot.setAttribute("aria-selected", String(dotIndex === current));
+    });
+  }
+
+  prev.addEventListener("click", () => showSlide(current - 1));
+  next.addEventListener("click", () => showSlide(current + 1));
+  showSlide(0);
+}
+
+setupMemoryCarousel();
