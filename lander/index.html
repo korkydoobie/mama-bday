@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A birthday greeting for Mama." />
+    <title>Happy Birthday, Mama</title>
+    <base href="/" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero" aria-label="Birthday greeting">
+        <img class="hero-art" src="assets/birthday-hero.png" alt="Birthday cake, flowers, and warm candlelight" />
+        <div class="hero-scrim"></div>
+        <div class="hero-content">
+          <p class="eyebrow">For your special day</p>
+          <h1>Happy Birthday, Mama</h1>
+          <p class="hero-copy">
+            Today is for the woman whose love has made every ordinary day feel warmer, kinder, and more possible.
+          </p>
+          <div class="hero-actions" aria-label="Page actions">
+            <button class="primary-action" type="button" id="openLetter">Open your letter</button>
+            <button class="icon-action" type="button" id="celebrate" aria-label="Celebrate"><span aria-hidden="true">+</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="letter-section" id="letter" aria-labelledby="letter-title">
+        <div class="letter-wrap">
+          <p class="section-kicker">A little note</p>
+          <h2 id="letter-title">For everything you are</h2>
+          <p>
+            Mama, your birthday is a beautiful excuse to say what should be said every day:
+            thank you for your patience, your strength, your prayers, your laughter, and the love
+            you give so freely.
+          </p>
+          <p>
+            You have a way of making home feel safe and life feel hopeful. I am grateful for every
+            lesson, every meal, every call, every quiet sacrifice, and every moment you chose love
+            even when it was not easy.
+          </p>
+          <p>
+            I hope this year brings you deep rest, bright joy, good health, and the kind of happiness
+            that keeps surprising you. You deserve all of it.
+          </p>
+          <p class="signature">With so much love,<br />Your family</p>
+        </div>
+      </section>
+
+      <section class="memories-section" aria-labelledby="memories-title">
+        <div class="section-heading">
+          <p class="section-kicker">Tiny reasons we love you</p>
+          <h2 id="memories-title">A few things that feel like Mama</h2>
+        </div>
+        <div class="memory-grid">
+          <article class="memory-card">
+            <span>01</span>
+            <h3>Your kindness</h3>
+            <p>You notice what people need before they even ask, and you give with a full heart.</p>
+          </article>
+          <article class="memory-card">
+            <span>02</span>
+            <h3>Your strength</h3>
+            <p>You have carried so much with grace, and somehow still make room for everyone else.</p>
+          </article>
+          <article class="memory-card">
+            <span>03</span>
+            <h3>Your joy</h3>
+            <p>Your smile changes the room. Your laughter is one of our favorite sounds.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="wish-section" aria-labelledby="wish-title">
+        <div>
+          <p class="section-kicker">Birthday wish</p>
+          <h2 id="wish-title">May this year be gentle and golden</h2>
+        </div>
+        <p>
+          May you feel celebrated today, cherished always, and surrounded by the love you have poured
+          into everyone around you.
+        </p>
+      </section>
+    </main>
+
+    <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
